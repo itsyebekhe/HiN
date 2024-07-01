@@ -401,7 +401,9 @@ function generateName($config, $type) {
     $configNetwork = getNetwork($config, $type);
     $configTLS = getTLS($config, $type);
 
-    return "{$isEncrypted} {$configType}-{$configNetwork}-{$configTLS} {$configFlag} {$configLocation}-{$configIp}:{$configPort}";
+    $lantency = ping($configIp, $configPort, 1);
+
+    return "{$isEncrypted} {$configType}-{$configNetwork}-{$configTLS} {$configFlag} {$configLocation} {$lantency}";
 }
 
 function getNetwork($config, $type) {
@@ -454,4 +456,18 @@ function removeAngleBrackets($link) {
     return preg_replace('/<.*?>/', '', $link);
 }
 
-file_put_contents("Miner", getTelegramChannelConfigs("HiNMiner"));
+function ping($host, $port, $timeout) {
+    $tB = microtime(true);
+    $fP = fSockOpen($host, $port, $errno, $errstr, $timeout);
+    if (!$fP) {
+        return "down";
+    }
+    $tA = microtime(true);
+    return round((($tA - $tB) * 1000), 0) . "ms";
+}
+
+$source = "HiNMiner";
+$configsList = getTelegramChannelConfigs("HiNMiner");
+
+file_put_contents("Miner/normal", $configsList);
+file_put_contents("Miner/base64", base64_encode($configsList));
