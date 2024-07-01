@@ -454,4 +454,4 @@ function removeAngleBrackets($link) {
     return preg_replace('/<.*?>/', '', $link);
 }
 
-file_put_contents("HiNMiner", getTelegramChannelConfigs("HiNMiner"));
+file_put_contents("Miner", getTelegramChannelConfigs("HiNMiner"));
