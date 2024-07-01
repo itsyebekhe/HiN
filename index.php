@@ -10,18 +10,20 @@ function getTelegramChannelConfigs($username)
     $sourceArray = explode(",", $username);
     foreach ($sourceArray as $source) {
         $html = file_get_contents("https://t.me/s/" . $source);
+        
         $types = ["vmess", "vless", "trojan", "ss", "tuic", "hysteria", "hysteria2", "hy2"];
+        $configs = [];
         foreach ($types as $type) {
-            $configs = [];
             $configs[$type] = getConfigItems($type, $html);
-            $output = "";
-            foreach ($configs as $type => $configsArray) {
-                foreach ($configsArray as $config) {
-                    if (is_valid($config)) {
-                        $fixedConfig = removeAngleBrackets($config);
-                        $correctedConfig = correctConfig("{$type}://{$fixedConfig}", $type);
-                        $output .= "{$correctedConfig}\n";
-                    }
+        }
+        file_put_contents("collect", json_encode($configs, JSON_PRETTY_PRINT));
+        $output = "";
+        foreach ($configs as $type => $configsArray) {
+            foreach ($configsArray as $config) {
+                if (is_valid($config)) {
+                    $fixedConfig = str_replace("amp;", "", removeAngleBrackets($config));
+                    $correctedConfig = correctConfig("{$type}:{$fixedConfig}", $type);
+                    $output .= "{$correctedConfig}\n";
                 }
             }
         }
@@ -191,10 +193,13 @@ function correctConfig ($config, $type) {
     $configHashName = $configsHashName[$type];
 
     $parsedConfig = configParse($config, $type);
+    print_r($parsedConfig);
+    echo "\n";
     $configHashTag = generateName($parsedConfig, $type);
     $parsedConfig[$configHashName] = $configHashTag;
 
     $rebuildedConfig = reparseConfig($parsedConfig, $type);
+    return $rebuildedConfig;
 }
 
 function is_ip($string)
@@ -363,16 +368,6 @@ function generateName($config, $type) {
         "hy2" => "HY2",
         "ss" => "SS",
     ];
-    $configsHashName = [
-        "vmess" => "ps",
-        "vless" => "hash",
-        "trojan" => "hash",
-        "tuic" => "hash",
-        "hysteria" => "hash",
-        "hysteria2" => "hash",
-        "hy2" => "hash",
-        "ss" => "name",
-    ];
     $configsIpName = [
         "vmess" => "add",
         "vless" => "hostname",
@@ -394,11 +389,11 @@ function generateName($config, $type) {
         "ss" => "server_port",
     ];
 
-    $configHashName = $configsHashName[$type];
     $configIpName = $configsIpName[$type];
+    $configPortName = $configsPortName[$type];
     
     $configIp = $config[$configIpName];
-    $configPort = $config[$configsPortName];
+    $configPort = $config[$configPortName];
     $configLocation = ip_info($configIp)->country ?? "XX";
     $configFlag = $configLocation === "XX" ? "❔" : ($configLocation === "CF" ? "🚩" : getFlags($configLocation));
     $isEncrypted = isEncrypted($config, $type) ? "🔒" : "🔓";
@@ -441,8 +436,9 @@ function isEncrypted($config, $type) {
 
 function getConfigItems($type, $input)
 {
-    preg_match_all("#>" . $type . "://(.*?)<br#", $input, $items);
-    return $items[1];
+    $pattern = '/\b' . preg_quote($type, '/') . ':(\S+)\b/';
+    preg_match_all($pattern, $input, $matches);
+    return $matches[1];
 }
 
 
@@ -458,4 +454,4 @@ function removeAngleBrackets($link) {
     return preg_replace('/<.*?>/', '', $link);
 }
 
-file_put_contents("HiNMiner", getTelegramChannelConfigs("Hinminer"));
+file_put_contents("HiNMiner", getTelegramChannelConfigs("HiNMiner"));
