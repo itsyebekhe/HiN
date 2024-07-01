@@ -466,7 +466,7 @@ function ping($host, $port, $timeout) {
     return round((($tA - $tB) * 1000), 0) . "ms";
 }
 
-function generateHiddifyTags () {
+function generateHiddifyTags() {
     $profileTitle = base64encode("HiN Miner 🫧");
     return "#profile-title: {$profileTitle}\n#profile-update-interval: 1\n#subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531\n#support-url: https://hingroup.t.me\n#profile-web-page-url: https://Here_is_Nowhere.t.me
 ";
