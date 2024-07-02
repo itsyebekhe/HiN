@@ -244,14 +244,14 @@ function convertToJson($input) {
 function ip_info($ip)
 {
     // Check if the IP is from Cloudflare
-    if (is_cloudflare_ip($ip)) {
+    /*if (is_cloudflare_ip($ip)) {
         $traceUrl = "http://$ip/cdn-cgi/trace";
         $traceData = convertToJson(file_get_contents($traceUrl));
         $country = $traceData['loc'] ?? "CF";
         return (object) [
             "country" => $country,
         ];
-    }
+    }*/
 
     if (is_ip($ip) === false) {
         $ip_address_array = dns_get_record($ip, DNS_A);
@@ -419,6 +419,7 @@ function getTLS($config, $type) {
     if ($type === "vmess" && $config['tls'] === "") return "N/A";
     if (in_array($type, ["vless", "trojan"]) && $config['params']['security'] === "tls") return "TLS";
     if (in_array($type, ["vless", "trojan"]) && $config['params']['security'] === "none") return "N/A";
+    if (in_array($type, ["vless", "trojan"]) && empty($config['params']['security'])) return "N/A";
     if (in_array($type, ["tuic", "hysteria", "hysteria2", "hy2"])) return "N/A";
     if ($type === "ss") return "TCP";
     return null;
