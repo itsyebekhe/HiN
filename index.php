@@ -22,7 +22,7 @@ function getTelegramChannelConfigs($username)
             foreach ($configsArray as $config) {
                 if (is_valid($config)) {
                     $fixedConfig = str_replace("amp;", "", removeAngleBrackets($config));
-                    $correctedConfig = correctConfig("{$type}:{$fixedConfig}", $type);
+                    $correctedConfig = correctConfig("{$fixedConfig}", $type);
                     $output .= "{$correctedConfig}\n";
                 }
             }
@@ -436,11 +436,17 @@ function isEncrypted($config, $type) {
     return false;
 }
 
-function getConfigItems($type, $input)
-{
-    $pattern = '/(?<![a-zA-Z])'. $type .'[^\s]+/';
-    preg_match_all($pattern, $input, $matches);
-    return $matches[1];
+function getConfigItems($prefix, $string) {
+    $regex = '~[a-z]+://\\S+~i';;
+    preg_match_all($regex, $string, $matches);
+    $count = strlen($prefix) + 3;
+    $output = [];
+    foreach($matches[0] as $match) {
+    	if (substr($match, 0, $count) === "{$prefix}://"){
+    		$output[] = $match;
+    	}
+    }
+    return $output;
 }
 
 
