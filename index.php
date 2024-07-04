@@ -558,11 +558,11 @@ function generateUpdateTime() {
 }
 
 function generateEndofConfiguration() {
-    return "\nvless://acbabca-acab-bcaa-abdc-bbccaabaccab@127.0.0.1:8080?security=tls&type=tcp#👨🏻‍💻 DEVELOPED-BY @YEBEKHE 📌 SUPPORT-CONTACT @HiNGROUP.T.ME";
+    return "vless://acbabca-acab-bcaa-abdc-bbccaabaccab@127.0.0.1:8080?security=tls&type=tcp#👨🏻‍💻 DEVELOPED-BY @YEBEKHE 📌 SUPPORT-CONTACT @HiNGROUP.T.ME";
 }
 
 $source = "HiNMiner";
-$configsList = generateHiddifyTags() . "\n\n" . generateUpdateTime() . getTelegramChannelConfigs("HiNMiner") . generateEndofConfiguration();
+$configsList = generateHiddifyTags() . "\n" . generateUpdateTime() . getTelegramChannelConfigs("HiNMiner") . generateEndofConfiguration();
 
 file_put_contents("Miner/normal", $configsList);
 file_put_contents("Miner/base64", base64_encode($configsList));
