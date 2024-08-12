@@ -1,12 +1,6 @@
 {
     "vmess": [],
     "vless": [
-        "vless:\/\/bf852703-3716-43f6-81c6-7f08403a1d55@[2a06:98c1:3122::]:8880\/?type=ws&amp;encryption=none&amp;host=wWw.speEdtest.net.www.zula.ir.cloudflare.com.Tescoco.cFd.&amp;path=%2F%3Fed%3D2048#%E2%98%AC%20SH%CE%9E%D0%AFVIN%E2%84%A2%20%2831%29",
-        "vless:\/\/-KING%20OF%20SPEED-@185.146.173.25:2083\/?type=ws&amp;encryption=none&amp;host=kingvrayng.shomalmegamall.ir&amp;path=%40KINGOFV2RAY%2C%40KINGOFV2RAY%2C%40KINGOFV2RAY%2C%40KINGOFV2RAY%2C%40KINGOFV2RAY%2C%40KINGOFV2RAY&amp;security=tls&amp;sni=kingvrayng.shomalmegamall.ir&amp;fp=chrome#%E2%98%AC%20SH%CE%9E%D0%AFVIN%E2%84%A2%20%2832%29",
-        "vless:\/\/6f102951-0d8e-4185-be37-4ec4a175b9ae@104.16.11.133:80\/?type=ws&amp;encryption=none&amp;host=Vpn_Mikey-speedtest.net.Amir-Mikey.Tech.&amp;path=%2F%40Vpn_Mikey%D8%8C%40Vpn_Mikey#%E2%98%AC%20SH%CE%9E%D0%AFVIN%E2%84%A2%20%2833%29",
-        "vless:\/\/911e7942-4c0a-47f5-95e1-25740be19043@[2a01:7e01::f03c:94ff:fe2a:b2d]:5011\/?type=tcp&amp;encryption=none#%E2%98%AC%20SH%CE%9E%D0%AFVIN%E2%84%A2%20%2834%29",
-        "vless:\/\/1f48f432-fff4-474f-c3a6-08cf1db5b709@104.21.2.232:443\/?type=ws&amp;encryption=none&amp;host=pay.technator.net&amp;path=%2Fimage%2F20992&amp;security=tls&amp;sni=pay.technator.net&amp;fp=chrome#%E2%98%AC%20SH%CE%9E%D0%AFVIN%E2%84%A2%20%2837%29",
-        "vless:\/\/telegram-id-ArV2ray@104.17.148.22:2095\/?type=ws&amp;encryption=none&amp;host=8.V.V2.www.speedtest.net.o.debian.org.bahrane.iR.&amp;path=%2Ftelegram-ArV2ry%2Ctelegram-ArV2ry%2Ctelegram-ArV2ry%2Ctelegram-ArV2ry%2Ctelegram-ArV2ry%2Ctelegram-ArV2ry%2Ctelegram-ArV2ry%2Ctelegram-ArV2ry%2Ctelegram-ArV2ry%2Ctelegram-ArV2ry%2Ctelegram-ArV2ry%3Fed%3D2095#%E2%98%AC%20SH%CE%9E%D0%AFVIN%E2%84%A2%20%2838%29<\/code><\/div>",
         "vless:\/\/TELEGRAM-ServerNett@[2a01:4f8:c17:eaf8::1]:31407\/?type=tcp&amp;encryption=none#%E2%98%AC%20SH%CE%9E%D0%AFVIN%E2%84%A2",
         "vless:\/\/434cd366-748e-4ec6-91f5-df027467ff8b@193.107.48.162:37829\/?encryption=none&amp;host=fast.com&amp;type=tcp&amp;headerType=http#%E2%98%AC%20SH%CE%9E%D0%AFVIN%E2%84%A2",
         "vless:\/\/49fc52a8-64d5-4fbe-8049-97e9173b2937@185.146.173.58:8080\/?type=ws&amp;encryption=none&amp;host=lc4.lebasnoo.ir.&amp;path=%2Fservernett#%E2%98%AC%20SH%CE%9E%D0%AFVIN%E2%84%A2",
@@ -214,9 +208,7 @@
         "vless:\/\/37239c7f-b959-4065-841f-ac516465f8fe@176.65.242.107:39554\/?type=ws&amp;encryption=none&amp;path=%2F#%E2%98%AC%20SH%CE%9E%D0%AFVIN%E2%84%A2%20",
         "vless:\/\/911e7942-4c0a-47f5-95e1-25740be19043@[2a01:7e01::f03c:94ff:fe2a:b2d]:5011\/?type=tcp&amp;encryption=none#%E2%98%AC%20SH%CE%9E%D0%AFVIN%E2%84%A2%20<\/code><\/div>"
     ],
-    "trojan": [
-        "trojan:\/\/telegram-id-directvpn@18.222.94.131:22222\/?type=tcp&amp;security=tls&amp;sni=trojan.burgerip.co.uk&amp;alpn=http%2F1.1#%E2%98%AC%20SH%CE%9E%D0%AFVIN%E2%84%A2%20%2836%29"
-    ],
+    "trojan": [],
     "ss": [],
     "tuic": [],
     "hysteria": [],
